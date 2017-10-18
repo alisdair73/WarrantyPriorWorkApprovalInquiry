@@ -111,7 +111,13 @@
 			}
 		},
 		"extends": {
-			"extensions": {}
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
+						"controllerName": "warranty_prior_work_approval_inquiry.ext.controller.ListReportExt"
+					}
+				}
+			}
 		},
 		"contentDensities": {
 			"compact": true,
