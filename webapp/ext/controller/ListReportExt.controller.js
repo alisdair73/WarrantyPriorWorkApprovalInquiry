@@ -2,11 +2,10 @@ sap.ui.controller("warranty_prior_work_approval_inquiry.ext.controller.ListRepor
 
     onInitSmartFilterBarExtension: function(oEvent){
     	
-    	var today = new Date();
-    	var todayMinus90Days = new Date();
+    	var today = new Date(new Date().setHours(0, 0, 0, 0));
+    	var todayMinus90Days = new Date(new Date().setHours(0, 0, 0, 0));
     	todayMinus90Days.setDate(today.getDate() - 90);
 
-    	
 		var customFilter = {
 			"submittedDate":{
 				"ranges":[{
@@ -21,5 +20,8 @@ sap.ui.controller("warranty_prior_work_approval_inquiry.ext.controller.ListRepor
 			}};
 	    	
 		oEvent.getSource().setFilterData(customFilter,true);
+		
+		//Clear startup parameters as these override the filter 
+		this.getOwnerComponent().oContainer.getParent().getParent().oComponentData.startupParameters = {};
     }
 });
